@@ -1,0 +1,231 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { questions } from '../data/quiz';
+---
+
+<Layout title="Quiz sur les Amphibiens - Grand Lyon">
+  <main>
+    <h1>Quiz sur les <span class="text-gradient">Amphibiens</span></h1>
+    
+    <div class="quiz-container">
+      {questions.map((q, qIndex) => (
+        <div class="question-card" data-question={qIndex}>
+          <h3>Question {qIndex + 1}</h3>
+          <p class="question-text">{q.question}</p>
+          <div class="options">
+            {q.options.map((option, oIndex) => (
+              <button 
+                class="option-btn"
+                data-correct={oIndex === q.correctAnswer ? "true" : "false"}
+
+                data-index={oIndex}
+              >
+                {option}
+                {oIndex === q.correctAnswer && <span class="correct-indicator">✓</span>}
+              </button>
+            ))}
+          </div>
+          <div class="feedback hidden">
+            <p class="result-text"></p>
+            <p class="explanation">{q.explanation}</p>
+          </div>
+        </div>
+      ))}
+      
+      <div class="score-display hidden">
+        <h2>Résultat Final</h2>
+        <p>Votre score : <span id="score">0</span>/10</p>
+        <button class="retry-btn">Recommencer le Quiz</button>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  let score = 0;
+  let answeredQuestions = 0;
+  
+  function initQuiz() {
+    score = 0;
+    answeredQuestions = 0;
+    document.querySelectorAll('.question-card').forEach(card => {
+      card.querySelectorAll('.option-btn').forEach(btn => {
+        btn.classList.remove('correct', 'incorrect', 'disabled');
+      });
+      card.querySelector('.feedback').classList.add('hidden');
+    });
+    document.querySelector('.score-display').classList.add('hidden');
+  }
+
+  document.querySelectorAll('.option-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const card = button.closest('.question-card');
+      if (card.querySelector('.option-btn.correct, .option-btn.incorrect')) return;
+
+      const isCorrect = button.dataset.correct === 'true';
+      button.classList.add(isCorrect ? 'correct' : 'incorrect');
+      
+      const feedback = card.querySelector('.feedback');
+      feedback.classList.remove('hidden');
+      feedback.querySelector('.result-text').textContent = isCorrect ? 
+        '✓ Correct !' : 
+        '✗ Incorrect. La bonne réponse est indiquée.';
+      feedback.querySelector('.result-text').className = 'result-text ' + (isCorrect ? 'success' : 'error');
+      
+      if (isCorrect) score++;
+      answeredQuestions++;
+
+      card.querySelectorAll('.option-btn').forEach(btn => {
+        btn.classList.add('disabled');
+        if (btn.dataset.correct === 'true') {
+          btn.classList.add('show-correct');
+        }
+      });
+
+      if (answeredQuestions === 10) {
+        document.querySelector('.score-display').classList.remove('hidden');
+        document.querySelector('#score').textContent = score.toString();
+      }
+    });
+  });
+
+  document.querySelector('.retry-btn').addEventListener('click', initQuiz);
+</script>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2em;
+  }
+
+  .quiz-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .question-card {
+    background: rgba(var(--accent-dark), 0.2);
+    border: 1px solid rgba(var(--accent-light), 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .question-text {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .option-btn {
+    background: rgba(var(--accent-dark), 0.3);
+    border: 1px solid rgba(var(--accent-light), 0.2);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .option-btn:hover:not(.disabled) {
+    background: rgba(var(--accent), 0.3);
+  }
+
+  .option-btn.correct {
+    background: rgba(0, 255, 0, 0.2);
+    border-color: rgba(0, 255, 0, 0.4);
+  }
+
+  .option-btn.incorrect {
+    background: rgba(255, 0, 0, 0.2);
+    border-color: rgba(255, 0, 0, 0.4);
+  }
+
+  .option-btn.show-correct {
+    border: 2px solid #4CAF50;
+  }
+
+  .option-btn.disabled {
+    cursor: default;
+    opacity: 0.7;
+  }
+
+  .correct-indicator {
+    display: none;
+    color: #4CAF50;
+    font-weight: bold;
+  }
+
+  .option-btn.show-correct .correct-indicator {
+    display: inline;
+  }
+
+  .feedback {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(var(--accent), 0.1);
+    border-radius: 8px;
+  }
+
+  .result-text {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .result-text.success {
+    color: #4CAF50;
+  }
+
+  .result-text.error {
+    color: #f44336;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .score-display {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(var(--accent), 0.2);
+    border-radius: 12px;
+    margin-top: 2rem;
+  }
+
+  .retry-btn {
+    background: rgb(var(--accent));
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+</style>

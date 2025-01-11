@@ -1,0 +1,74 @@
+---
+import { filters } from '../data/filters';
+
+interface Props {
+  activeFilter: string;
+}
+
+const { activeFilter } = Astro.props;
+---
+
+<div class="filters">
+  {filters.map(filter => (
+    <a 
+      href={`/especes?filter=${filter.id}`}
+      class={`filter-btn ${activeFilter === filter.id ? 'active' : ''}`} 
+      data-filter={filter.id}
+      title={filter.description}
+    >
+      {filter.label}
+      {filter.description && (
+        <span class="filter-info">ⓘ</span>
+      )}
+    </a>
+  ))}
+</div>
+
+<style>
+  .filters {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    background: rgba(var(--accent-dark), 0.2);
+    border: 1px solid rgba(var(--accent-light), 0.2);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    text-decoration: none;
+  }
+
+  .filter-btn:hover, .filter-btn.active {
+    background: rgb(var(--accent));
+    border-color: rgb(var(--accent));
+  }
+
+  .filter-info {
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+    opacity: 0.8;
+  }
+
+  .filter-btn:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    z-index: 10;
+    margin-bottom: 0.5rem;
+  }
+</style>

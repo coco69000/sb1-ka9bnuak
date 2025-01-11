@@ -1,0 +1,46 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<section class="info-section">
+  <h2 class="title">{title}</h2>
+  {subtitle && <p class="subtitle">{subtitle}</p>}
+  <div class="content">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .info-section {
+    background: rgba(var(--accent-dark), 0.2);
+    border: 1px solid rgba(var(--accent-light), 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .title {
+    color: rgb(var(--accent-light));
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    color: #888;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .content {
+    line-height: 1.6;
+  }
+
+  .content :global(p) {
+    margin-bottom: 1rem;
+  }
+</style>

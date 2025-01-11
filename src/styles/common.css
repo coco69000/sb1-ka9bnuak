@@ -1,0 +1,23 @@
+/* Common styles for text gradients and layout */
+.text-gradient {
+  background-image: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 400%;
+  background-position: 0%;
+}
+
+.container {
+  margin: auto;
+  padding: 1rem;
+  width: 1200px;
+  max-width: calc(100% - 2rem);
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2em;
+  color: white;
+}

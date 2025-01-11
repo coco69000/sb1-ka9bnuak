@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InfoSection from '../components/InfoSection.astro';
+
+---
+
+<Layout title="Menaces et Protection - Amphibiens du Grand Lyon">
+  <main>
+    <h1>Menaces et <span class="text-gradient">Protection</span></h1>
+
+    <InfoSection title="Menaces Principales" subtitle="Des espèces en danger">
+      <p>Malgré une existence antédiluvienne sur notre planète, les amphibiens sont directement menacés par les activités humaines. Toutes les espèces sont en déclin et bon nombre sont en danger.</p>
+      
+      <ul class="threats-list">
+        <li>Le morcellement et la destruction de leurs milieux de vie (les zones humides)</li>
+        <li>L'empoisonnement massif des espèces et des milieux (pesticides)</li>
+        <li>La sensibilité particulière aux pollutions aquatiques due à leur peau nue</li>
+        <li>Les hécatombes lors des migrations printanières sur les routes</li>
+        <li>La Chytridiomycose, un champignon aquatique mortel qui parasite 30% des amphibiens</li>
+      </ul>
+    </InfoSection>
+
+    <InfoSection title="Protection" subtitle="Comment agir ?">
+      <p>Toutes les espèces sont protégées par les lois françaises et plusieurs textes internationaux. Voici comment vous pouvez aider :</p>
+
+      <ul class="action-list">
+        <li>Participer aux campagnes de protection</li>
+        <li>Contribuer aux comptages et suivis des populations</li>
+        <li>Aider à la protection des animaux en migration</li>
+        <li>Participer à la réhabilitation des milieux humides</li>
+        <li>Signaler les sites d'écrasement ou de mortalité importante</li>
+      </ul>
+
+      <div class="volunteer-section">
+        <h3>Devenez Bénévole !</h3>
+        <p>Vous pouvez rejoindre des associations locales qui œuvrent pour la protection des amphibiens :</p>
+        <ul>
+          <li><strong>Arthropologia</strong> : Association lyonnaise spécialisée en écologie et conservation des espèces</li>
+          <li><strong>LPO (Ligue pour la Protection des Oiseaux)</strong> : Antenne du Rhône, active dans la protection de la biodiversité</li>
+        </ul>
+        <p>Ces associations recherchent régulièrement des bénévoles pour :</p>
+        <ul>
+          <li>Participer à des comptages</li>
+          <li>Aider à la création et l'entretien de mares</li>
+          <li>Sensibiliser le public</li>
+          <li>Contribuer à des programmes de recherche</li>
+        </ul>
+      </div>
+    </InfoSection>
+
+    <InfoSection title="Créer des Mares" subtitle="Un geste pour la biodiversité">
+      <p>La disparition des zones humides est une catastrophe pour les amphibiens. Les réseaux de mares permanentes ou temporaires sont indispensables pour leur survie.</p>
+      <p>Conseils pour créer une mare :</p>
+      <ul class="tips-list">
+        <li>Choisir un emplacement adapté</li>
+        <li>Créer différentes profondeurs</li>
+        <li>Ne pas introduire de poissons</li>
+        <li>Laisser la végétation s'installer naturellement</li>
+      </ul>
+    </InfoSection>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 1200px;
+    max-width: calc(100% - 2rem);
+    color: white;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2em;
+  }
+
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+
+  ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  .threats-list li {
+    color: #ff6b6b;
+  }
+
+  .action-list li {
+    color: #4ecdc4;
+  }
+
+  .tips-list li {
+    color: #ffd93d;
+  }
+</style>

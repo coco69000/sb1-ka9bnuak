@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InfoSection from '../components/InfoSection.astro';
+
+---
+
+<Layout title="Biologie des Amphibiens - Grand Lyon">
+  <main>
+    <h1>Biologie des <span class="text-gradient">Amphibiens</span></h1>
+
+    <InfoSection title="Origine et Diversité" subtitle="Plus de 400 millions d'années d'histoire">
+      <p>Le terme amphibien est construit sur les racines grecques amphi, signifiant « des deux côtés » et bio, « la vie ». Ce nom fait référence à leur cycle en deux phases : aquatique et terrestre.</p>
+      <p>Les amphibiens descendent des poissons et sont apparus il y a plus de 400 millions d'années. Pourvus de poumons et de membres, ce sont les premiers vertébrés à être partis à la conquête de la terre ferme, ouvrant ainsi la voie aux reptiles, oiseaux et mammifères.</p>
+      <p>On compte environ 6 000 espèces d'amphibiens sur la Terre et 35 espèces en France.</p>
+    </InfoSection>
+
+    <InfoSection title="Cycle de Vie" subtitle="Une vie entre terre et eau">
+      <p>Les amphibiens sont pour la plupart des animaux terrestres et nocturnes qui vivent généralement dans et aux abords des zones boisées. Au printemps, les adultes retournent vers leur lieu de naissance pour se reproduire.</p>
+      <p>Durant quelques semaines, les mâles chantent pour attirer les femelles. Une fois la saison des amours passée, les adultes quittent les points d'eau et prennent leur quartier d'été.</p>
+      <p>Les larves grandissent dans les mares, étangs et ruisseaux. La métamorphose a lieu généralement dans l'année et des adultes miniatures sortent de l'eau en début d'été.</p>
+      <p>A l'automne, tous les amphibiens se déplacent vers leur zone d'hivernage.</p>
+    </InfoSection>
+
+    <InfoSection title="Régime Alimentaire" subtitle="Des prédateurs utiles">
+      <p>Les amphibiens adultes sont tous carnivores et se nourrissent essentiellement d'insectes (chenilles, vers blancs, taupins…) et de mollusques (limaces, escargots).</p>
+      <p>Les larves d'urodèles sont carnivores et consomment des insectes aquatiques et des vers, tandis que les larves d'anoures sont herbivores et broutent les algues.</p>
+      <p>En cela, ce sont des animaux extrêmement utiles aux abords de nos demeures et surtout de nos plantations. Ce sont même d'excellents auxiliaires des cultures.</p>
+    </InfoSection>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 1200px;
+    max-width: calc(100% - 2rem);
+    color: white;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2em;
+  }
+
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+</style>

@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SearchBar from '../components/SearchBar.astro';
+import SpeciesCard from '../components/SpeciesCard.astro';
+import SpeciesFilter from '../components/SpeciesFilter.astro';
+import { species } from '../data/species';
+import { filterSpecies } from '../utils/speciesFilters';
+
+const activeFilter = Astro.url.searchParams.get('filter') || 'all';
+const filteredSpecies = filterSpecies(species, activeFilter);
+
+// Grouper les espèces par catégorie
+const groupedSpecies = filteredSpecies.reduce((acc, species) => {
+  const group = species.group;
+  if (!acc[group]) {
+    acc[group] = [];
+  }
+  acc[group].push(species);
+  return acc;
+}, {});
+
+---
+
+<Layout title="Catalogue des Espèces - Amphibiens de Lyon">
+  <main>
+    <h1>Catalogue des <span class="text-gradient">Espèces du Grand Lyon</span></h1>
+    <h2 class="subtitle">Découvrez les 15 espèces d'amphibiens du Grand Lyon, sur les 45 que compte la France (32 Anoures et 13 Urodèles)</h2>
+    
+    <div class="search-section">
+      <SearchBar placeholder="Rechercher une espèce..." />
+    </div>
+
+    <SpeciesFilter activeFilter={activeFilter} />
+
+    <div class="species-groups">
+      {Object.entries(groupedSpecies).map(([group, speciesList]) => (
+        <div class="species-group">
+          <h2>{group}</h2>
+          <div class="species-grid">
+            {speciesList.map(species => (
+              <SpeciesCard {...species} />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 1200px;
+    max-width: calc(100% - 2rem);
+    color: white;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: rgb(var(--accent-light));
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+
+  .species-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .species-group h2 {
+    color: rgb(var(--accent-light));
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .species-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+</style>
