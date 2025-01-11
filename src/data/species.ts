@@ -10,6 +10,7 @@ interface Species {
   protected?: boolean;
   alternativeName?: string;
   inpnUrl?: string;
+  distributionMapUrl
 }
 
 export const species: Species[] = [
@@ -23,7 +24,7 @@ export const species: Species[] = [
 
     conservation: "Préoccupation-mineure",
     group: "Salamandres",
-    inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/NUMERO_ESPECE",
+    inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/92",
 
   },
   // Tritons
@@ -37,7 +38,7 @@ export const species: Species[] = [
     conservation: "Vulnérable",
     group: "Tritons",
     protected: true,
-    inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/NUMERO_ESPECE",
+    inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/139",
 
   },
   {
@@ -49,7 +50,7 @@ export const species: Species[] = [
     conservation: "Préoccupation-mineure",
     group: "Tritons",
     protected: true,
-        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/NUMERO_ESPECE",
+        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/444430",
 
   },
   {
@@ -60,7 +61,7 @@ export const species: Species[] = [
     distributionMapUrl: "https://media-hosting.imagekit.io//93ca60a8a0d24e01/444432_repartition.png?Expires=1831207331&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=Djg0aVTyRg~g8z~H2Fryhs6717CNSlusboJ9Fk5oRJwYdQw1x7t0glV5Iu2Xnxi-6K6EsSQZzeM8dJvH68TFCAq13XDwDpahCh~kcVDRqF4aOT3rrl6ae0nrSrTcXaNBWpTIUtqE9~rZpmdsPdfR4kuxVPRXcWNv5d8Fg1OUHgz-I12Vn7ytOFsuJW8fmWZVYG-vjt9l0AKFxuc33KUnG35I44Wp~V8jf8UxM~-OsEqjN21xGi9LZsPyLrGB4-FaIhA4nYiUcszwW-Q~WNout6rX-D1-6spEaQJF-kmo4TtiY3EOBDQIR48Bjhb~zX~r7vGp0R5-atZy6mk8bD61mw__",
     conservation: "Préoccupation-mineure",
     group: "Tritons",
-        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/NUMERO_ESPECE",
+        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/139",
 
   },
   // Crapauds
@@ -72,7 +73,7 @@ export const species: Species[] = [
     distributionMapUrl: "https://media-hosting.imagekit.io//8dc540cb1a46418a/197_repartition.png?Expires=1831207411&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=oMyv3awqqlmdtfCkUuuAHlMiDAKa2shcO3RAnedrKwofOf7FdK9Bb5DDCMfwk4t8v~ZbmrZ5uRK4UoXFcPxwJW33QP-EC983osaWQ1PbVJV7qLXP1fQA-20OM~j7qE8jfXHTj44m--V56G8KJZcJdi~4Wd7AIF3EvWNcpSbeuBrnW-i1Jtot5c5EwxujlcNXTEKkC3ztZPrjVyq3bAdRMiX6ZXz54ayeQ1ds7GiAZac51f2PLFI0eomrdMzjBVvEZkNYyyr38CtqB0yrgJx8BZvMXMk62MD3I~v8wdNlesWxJK9K6nVRZZdAd68FAS7KaV9ED2MvxtOXFshluXtJfw__",
     conservation: "Préoccupation-mineure",
     group: "Crapauds",
-        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/NUMERO_ESPECE",
+        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/197",
 
   },
   {
@@ -84,7 +85,7 @@ export const species: Species[] = [
     conservation: "Menacé",
     group: "Crapauds",
     protected: true,
-        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/NUMERO_ESPECE",
+        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/212",
 
   },
   {
@@ -95,7 +96,7 @@ export const species: Species[] = [
     distributionMapUrl: "https://media-hosting.imagekit.io//a65a50da07654f90/259_repartition.png?Expires=1831206776&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=aJqrCenmPkGaF~fDsYXdIYvPCHXAx-kjGvmSDczSNoJLh7f5cZe7YZ0C0TDTe3Us7mkb-v90PudJhB9DpKCkBEwyNrrzYE6Kma08k0BDdKEn7v1z5CB3hg0k6uceM2WrOSZ0DgobK-cR6a7LrWQjFTho2JKwruKc~694nLo0TQu3P5KDfP8rd8rVKO0cT6M9nJsxTPvMY1SFPUfILGO0BUPrJaWixpGTBLgp81iopsP6mTLTFFzEIvHIBHQunYSCllcWzq3YVOtPBFtaPTAZ03aoz3UDbsLHK52Lork1oRN3Nbf33NWLwVb8ggNt09rP-tJn1WwXK6YbPbaEhGGQhw__",
     conservation: "Préoccupation-mineure",
     group: "Crapauds",
-        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/NUMERO_ESPECE",
+        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/259",
 
   },
   {
@@ -107,7 +108,7 @@ export const species: Species[] = [
 
     conservation: "Préoccupation-mineure",
     group: "Crapauds",
-        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/NUMERO_ESPECE",
+        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/774678",
 
   },
   {
@@ -120,7 +121,7 @@ export const species: Species[] = [
     conservation: "Préoccupation-mineure",
     group: "Crapauds",
     alternativeName: "Crapaud des joncs",
-        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/NUMERO_ESPECE",
+        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/459628",
 
   },
   // Rainettes
@@ -133,7 +134,7 @@ export const species: Species[] = [
 
     conservation: "Préoccupation-mineure",
     group: "Rainettes",
-        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/NUMERO_ESPECE",
+        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/281",
 
   },
   // Grenouilles
@@ -146,7 +147,7 @@ export const species: Species[] = [
 
     conservation: "Préoccupation-mineure",
     group: "Grenouilles",
-        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/NUMERO_ESPECE",
+        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/351",
 
   },
   {
@@ -158,7 +159,7 @@ export const species: Species[] = [
 
     conservation: "Préoccupation-mineure",
     group: "Grenouilles",
-        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/NUMERO_ESPECE",
+        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/310",
 
   },
   {
@@ -170,7 +171,9 @@ export const species: Species[] = [
 
     conservation: "Préoccupation-mineure",
     group: "Grenouilles",
-    alternativeName: "Grenouille persillée"
+    alternativeName: "Grenouille persillée",
+    inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/252",
+
   },
   {
     name: "Grenouille verte",
@@ -181,7 +184,7 @@ export const species: Species[] = [
 
     conservation: "Préoccupation-mineure",
     group: "Grenouilles",
-        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/NUMERO_ESPECE",
+        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/444440",
 
   },
   {
@@ -193,7 +196,7 @@ export const species: Species[] = [
 
     conservation: "Préoccupation-mineure",
     group: "Grenouilles",
-        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/NUMERO_ESPECE",
+        inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/444443",
 
   }
 ];
