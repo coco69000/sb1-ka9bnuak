@@ -24,6 +24,7 @@ export const species: Species[] = [
 
     conservation: "Préoccupation-mineure",
     group: "Salamandres",
+    protected: true,
     inpnUrl: "https://inpn.mnhn.fr/espece/cd_nom/92",
 
   },
